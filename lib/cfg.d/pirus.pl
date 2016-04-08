@@ -90,6 +90,9 @@ $c->add_dataset_trigger( 'access', EPrints::Const::EP_TRIGGER_CREATED, sub {
 	my $repo = $args{repository};
 	my $access = $args{dataobj};
 
+	# don't transmit repository-staff downloads
+	return if $repo->current_user && $repo->current_user->is_staff;
+	
 	my $plugin = $repo->plugin( "Event::PIRUS" );
 
 	my $r = $plugin->log( $access, $repo->current_url( host => 1 ) );
