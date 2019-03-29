@@ -1,17 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<epm id='http://template.ulcc.ac.uk/id/epm/irus' xmlns='http://eprints.org/ep2/data/2.0'>
+<epm xmlns='http://eprints.org/ep2/data/2.0' id='http://template.ulcc.ac.uk/id/epm/irus'>
   <epmid>irus</epmid>
+  <uri>http://template.ulcc.ac.uk/id/epm/irus</uri>
   <documents>
     <document>
       <files>
-        <file>
-          <datasetid>document</datasetid>
-          <filename>cfg.d/pirus.pl</filename>
-          <mime_type>text/plain</mime_type>
-          <hash>93d6a5ac1693c82df96cd441d6c317a2</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>2750</filesize>
-        </file>
         <file>
           <datasetid>document</datasetid>
           <filename>plugins/EPrints/Plugin/Event/PIRUS.pm</filename>
@@ -20,14 +13,22 @@
           <hash_type>MD5</hash_type>
           <filesize>2495</filesize>
         </file>
+        <file>
+          <datasetid>document</datasetid>
+          <filename>cfg.d/pirus.pl</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>8ce08e43a4ff811693797650900b37a7</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>2883</filesize>
+        </file>
       </files>
       <mime_type>text/plain</mime_type>
       <format>text</format>
-      <main>plugins/EPrints/Plugin/Event/PIRUS.pm</main>
+      <main>cfg.d/pirus.pl</main>
       <content>install</content>
     </document>
   </documents>
-  <version>1.1.0</version>
+  <version>1.1.1</version>
   <creators>
     <item>
       <name>
@@ -48,7 +49,7 @@
       </name>
     </item>
   </creators>
-  <datestamp>2015-02-13 11:31:26</datestamp>
+  <datestamp>2019-03-29 02:34:57</datestamp>
   <title>PIRUS/IRUS-UK PUSH Implementation</title>
   <description>The aim of the PIRUS2 Project is to enable publishers, repositories and other organizations to generate and share authoritative, trustworthy usage statistics for the individual articles and other items that they host. v1.05 conforms to 2014 Guidelines.</description>
   <requirements>Requires 3.2.3 for TRIGGER and COUNTER robots list.</requirements>
