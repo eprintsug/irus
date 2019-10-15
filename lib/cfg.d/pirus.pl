@@ -2,50 +2,25 @@
 
 =head1 PIRUS 'PUSH' implementation
 
-Provide data for COUNTER-compliant usage statistics.
+The official location for this EPrints extension is L<https://github.com/eprintsug/irus/>.
 
-Copyright 2012 University of Southampton
+Please consult the README there for details about this implementation.
+
+If there are any problems or bugs, please open an issue in that GitHub repository.
 
 Released to the public domain (or CC0 depending on your juristiction).
 
 USE OF THIS EXTENSION IS ENTIRELY AT YOUR OWN RISK
 
-=head2 Installation
+=head2 Installation / Implementation 
 
-Copy this file into your repository's cfg.d/ directory and restart Apache.
-
-=head2 Implementation
-
-This code will PING the configured tracker server whenever a full-text object
-is requested from EPrints.
-
-These pings can be aggregated together with data from other sources
-(publishers, other repositories) to create a fuller picture of the usage of
-individual articles.
-
-
-The data transferred are:
-
-	- eprint.eprintid - the eprint's internal identifier
-	- eprint.datestamp - the datetime the access started
-	- IP address - the user's IP address
-	- User Agent - the user's browser user agent
-	- eprint.date - the publication date
-
-And either (if id_number is defined):
-
-	- eprint.id_number - the DOI
-
-Or:
-
-	- eprint.creators_name - first named author
-	- eprint.title - eprint title
-	- eprint.jtitle - publication title
-	- eprint.issn - publication ISSN
-	- eprint.volume - publication volume
-	- eprint.issue - publication issue
+Please see the L<Installation|https://github.com/eprintsug/irus#installation> 
+or L<Implementation|https://github.com/eprintsug/irus#implementation> sections
+of the README.
 
 =head2 Changes
+
+For recent changes, please see L<https://github.com/eprintsug/irus#changes>  
 
 1.05 Sebastien Francois <sf2@ecs.soton.ac.uk>
 
