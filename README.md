@@ -68,7 +68,11 @@ The default oai_dc metadata profile does not contain ORCIDs, but if you have a m
 
 
 ## Changes
- 
+
+* 1.2.2 John Salter <J.Salter@leeds.ac.uk>
+
+Additional information added to replay event and error log when a data transfer fails. This information may help diagnose the problem.
+
 * 1.2.1 John Salter <J.Salter@leeds.ac.uk>
 
 Update to default tracker URL.

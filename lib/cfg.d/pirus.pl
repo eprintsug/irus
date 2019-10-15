@@ -98,10 +98,13 @@ $c->add_dataset_trigger( 'access', EPrints::Const::EP_TRIGGER_CREATED, sub {
 
 	if( defined $r && !$r->is_success )
 	{
+		my $fail_message = "PIRUS dataset trigger failed to send data to tracker.\n " . $r->as_string;
+		$repo->log( $fail_message );
 		my $event = $repo->dataset( "event_queue" )->dataobj_class->create_unique( $repo, {
 			eventqueueid => Digest::MD5::md5_hex( "Event::PIRUS::replay" ),
 			pluginid => "Event::PIRUS",
 			action => "replay",
+			description => $fail_message,
 		});
 		if( defined $event )
 		{

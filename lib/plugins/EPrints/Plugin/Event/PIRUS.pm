@@ -1,6 +1,6 @@
 package EPrints::Plugin::Event::PIRUS;
 
-our $VERSION = v1.1.0;
+our $VERSION = v1.2.2;
 
 @ISA = qw( EPrints::Plugin::Event );
 
@@ -29,6 +29,7 @@ sub replay
 	my( $self, $accessid ) = @_;
 
 	my $repo = $self->{session};
+	my $fail_message;
 
 	local $SIG{__DIE__};
 	eval { $repo->dataset( "access" )->search(filters => [
@@ -39,16 +40,22 @@ sub replay
 		(undef, undef, my $access) = @_;
 
 		my $r = $self->log( $access );
-		die "failed\n" if !$r->is_success;
+		if( !$r->is_success )
+		{
+			$fail_message = $r->as_string;
+			die "failed\n";
+		}
 		$accessid = $access->id;
 	}) };
 	if( $@ eq "failed\n" )
 	{
 		$repo->log( "Attempt to re-send PIRUS trackback failed, trying again in 24 hours time" );
+		$repo->log( "PIRUS replay event failed with the response:\n$fail_message" );
 
 		my $event = $self->{event};
 		$event->set_value( "params", [$accessid] );
 		$event->set_value( "start_time", EPrints::Time::iso_datetime( time + 86400 ) );
+		$event->set_value( "description", $fail_message );
 		#return EPrints::Const::HTTP_RESET_CONTENT;
 		return 0;
 	}
