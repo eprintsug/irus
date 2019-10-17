@@ -16,7 +16,7 @@ the upgrade process should be as simple as clicking an 'Upgrade' button in the E
   ![Screenshot of Irus-v1.2.1 successful upgrade in EPrints Bazaar](UPGRADE-screenshots/irus-v1.2.1-upgraded.png)<br>
   **You should also restart the indexer at this time** and it would be advisable to restart the webserver.
 * If the above process results in a message such as:
-  ![Screenshot of Irus-v1.2.1 Upgrade in EPrints Bazaar](UPGRADE-screenshots/irus-v1.2.1-upgrade-failed.png)<br>
+  ![Screenshot of Irus-v1.2.1 Upgrade in EPrints Bazaar](UPGRADE-screenshots/irus-upgrade-failed.png)<br>
   it means that there have been some alterations to the IRUS code on your server.
 
 
