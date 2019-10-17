@@ -30,7 +30,7 @@ At this point it is probably safer to check on the server itself what has change
 If you are confident that any changes that have been made to the IRUS install are either covered by the upgrade, or not necessary, you can follow this procedure to upgrade IRUS:
 * From the EPrints Bazaar page, open the **Developer Tools** tab.
 * Click on 'Edit' next to the IRUS package
-![Screenshot edit button in EPrints Bazaar](UPGRADE-screenshots/irus-v1.10-edit-package.png)
+![Screenshot edit button in EPrints Bazaar](UPGRADE-screenshots/irus-v1.1.0-edit-package.png)
 * Don't edit anything, click **Save and Return**. This will re-calculate the checksums of the IRUS files, and allow you to upgrade as above.
 ![Screenshot edit button in EPrints Bazaar](UPGRADE-screenshots/irus-save-package.png)
 
