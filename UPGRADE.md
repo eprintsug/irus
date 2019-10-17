@@ -6,7 +6,7 @@ They may already be aware of this process, or may have other ways to manage this
 If you have installed IRUS from the EPrints Bazaar, and not edited the configuration files at all, 
 the upgrade process should be as simple as clicking an 'Upgrade' button in the EPrints Bazaar.
 
-If the have modified any of the IRUS files, that automated upgrade via the Bazaar may fail (see below).
+If you have modified any of the IRUS files, that automated upgrade via the Bazaar may fail (see below).
 
 * Navigate to the Admin screen in EPrints
 * From the **System Tools** tab, click on the **EPrints Bazaar** button
