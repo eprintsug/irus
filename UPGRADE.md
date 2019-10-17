@@ -11,12 +11,12 @@ the upgrade process should be as simple as clicking an 'Upgrade' button in the E
 * In the **Installed** tab, you should see the current version installed:
   ![Screenshot of Irus-v1.1.0 in EPrints Bazaar](UPGRADE-screenshots/irus-v1.1.0.png)
 * In the **Available** tab, you should be able to see the latest version of the IRUS package, with an **Upgrade** button next to it:
-  ![Screenshot of Irus-v1.2.1 Upgrade in EPrints Bazaar](UPGRADE-screenshots/irus-v.1.2.1-upgrade.png)
+  ![Screenshot of Irus-v1.2.1 Upgrade in EPrints Bazaar](UPGRADE-screenshots/irus-v1.2.1-upgrade.png)
 * Clicking the **Upgrade** button should result in a message similar to this:
-  ![Screenshot of Irus-v1.2.1 successful upgrade in EPrints Bazaar](UPGRADE-screenshots/irus-v.1.2.1-upgraded.png)<br>
+  ![Screenshot of Irus-v1.2.1 successful upgrade in EPrints Bazaar](UPGRADE-screenshots/irus-v1.2.1-upgraded.png)<br>
   **You should also restart the indexer at this time** and it would be advisable to restart the webserver.
 * If the above process results in a message such as:
-  ![Screenshot of Irus-v1.2.1 Upgrade in EPrints Bazaar](UPGRADE-screenshots/irus-v.1.2.1-upgrade-failed.png)<br>
+  ![Screenshot of Irus-v1.2.1 Upgrade in EPrints Bazaar](UPGRADE-screenshots/irus-v1.2.1-upgrade-failed.png)<br>
   it means that there have been some alterations to the IRUS code on your server.
 
 
