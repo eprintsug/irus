@@ -41,7 +41,7 @@ If you are confident that any changes that have been made to the IRUS install ar
 ![Screenshot edit button in EPrints Bazaar](UPGRADE-screenshots/irus-v1.1.0-edit-package.png)
 * Don't edit anything, click **Save and Return**. This will re-calculate the checksums of the IRUS files, and allow you to upgrade as above.
 ![Screenshot edit button in EPrints Bazaar](UPGRADE-screenshots/irus-save-package.png)
-
+* Follow the upgrade instructions above :o)
 
 ## Performaing a clean re-install
 
