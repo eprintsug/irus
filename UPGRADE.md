@@ -8,6 +8,14 @@ the upgrade process should be as simple as clicking an 'Upgrade' button in the E
 
 If you have modified any of the IRUS files, that automated upgrade via the Bazaar may fail (see below).
 
+If at some point the transfer of data to IRUS has failed, there may be an Event in the index queue. To check, 
+as the admin user, follow the **Manage records** link, and then click the **Tasks** link. Look for an entry with 
+the plugin 'Event::PIRUS'. If you have a lot of items in the index queue, using the filter might be the quickest 
+way of finding this.
+If there is an 'Event::PIRUS' entry, it may be safest to turn the indexer off before starting the upgrde process, and turning it back on again after the new version is installed.
+
+## Upgrade process
+
 * Navigate to the Admin screen in EPrints
 * From the **System Tools** tab, click on the **EPrints Bazaar** button
 * In the **Installed** tab, you should see the current version installed:
@@ -35,24 +43,20 @@ If you are confident that any changes that have been made to the IRUS install ar
 ![Screenshot edit button in EPrints Bazaar](UPGRADE-screenshots/irus-save-package.png)
 
 
+## Performaing a clean re-install
 
-## Other musings - do we need to cover more than the above?
-
-* Indexer (check for waiting-to-be-sent data)
-* If a prevsious version was installed, and e.g. the file `~/lib/cfg.d/pirus.pl` has been changed (new 
-tracker URL added), trying to install new version from Bazaar might fail
-* 
-
-For a 'clean' re-install:
-- Stop Indexer
-- Check for Existing Task (make note of ID from params)
-  - Make note of accessid (from DB or /cgi/counter?) before starting
-- Remove Event/PIRUS.pm; config file ~/lib/cfg.d/pirus.pl; [other files?]
-- Check for any other mentions of IRUS in repo config e.g. 
-`>grep -ri 'irus' ~/archives/ARCHIVEID/cfg/`
-- Remove ~/lib/epm/irus/
-- restart Apache
-- Visit Admin -> Sys Conf -> Bazaar
-- Install v1.2.2
-
----do something with AccessID..?
+If you want to make a clean install of the IRUS plugin:
+1. Stop indexer
+2. Remove any of the following that exist:
+   - `[EPRINTS_ROOT]/lib/epm/irus/*` and/or `[EPRIINTS_ROOT]/lib/epm/irus-dev/*`
+   - `[EPRINTS_ROOT]/lib/plugins/EPrints/Plugin/Event/PIRUS.pm`
+   - `[EPRINTS_ROOT]/lib/cfg.d/pirus.pl`
+   - `[EPRINTS_ROOT]/archives/[ARCHIVEID]/cfg/epm/irus`
+   - possibly other files within `[EPRINTS_ROOT]/archives/[ARCHIVEID]/cfg/` that mention 'irus' e.g. `>grep -ri 'irus' ~/archives/ARCHIVEID/cfg/`. You'll need to use your judgement on the results. Check with the EPrints Tech list if you are unsure).
+ 3. Run `[EPRINTS_ROOT]/bin/epadmin test` - which should report everything's OK.
+ 4. Restart web server
+ 5. Check the 'access' value returned from http://[your-server]/cgi/counter
+ 6. Install latest version from EPrins Bazaar (as above)
+ 7. Restart web server
+ 8. Re-check the 'access' value from the URL above. The difference between the two figures is how many summay pages and downloads have occurred whilst you reinstalled the PIRUS plugin. If the above process was quick, you may not have missed sending much/any data to IRUS. It may be that there are a few, but you're happy for these not to have been sent to IRUS.
+If you need to send this data to IRUS, please get in contact with IRUS for further advice.
