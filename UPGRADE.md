@@ -6,7 +6,7 @@ They may already be aware of this process, or may have other ways to manage this
 If you have installed IRUS from the EPrints Bazaar, and not edited the configuration files at all, 
 the upgrade process should be as simple as clicking an 'Upgrade' button in the EPrints Bazaar.
 
-If you have modified any of the IRUS files, that automated upgrade via the Bazaar may fail (see below).
+If you have modified any of the IRUS files, the automated upgrade via the Bazaar may fail (see below).
 
 If at some point the transfer of data to IRUS has failed, there may be an Event in the index queue. To check, 
 as the admin user, follow the **Manage records** link, and then click the **Tasks** link. Look for an entry with 
