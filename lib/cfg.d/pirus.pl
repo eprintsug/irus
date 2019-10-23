@@ -56,6 +56,7 @@ $c->{pirus}->{ua} = LWP::UserAgent->new(
 	timeout => 20,
 	conn_cache => LWP::ConnCache->new,
 );
+#$c->{pirus}->{ua}->proxy('https', 'FULL-URL-TO-YOUR-PROXY-SERVER');
 
 $c->{plugins}->{"Event::PIRUS"}->{params}->{disable} = 0;
 
