@@ -27,7 +27,7 @@ the following to a file in the archive specific configuration e.g. `~/archives/A
 
 In the file `lib/cfg.d/pirus.pl` there is a URL for a test COUNTER server in the comments.
 
-`#$c->{pirus}->{tracker} = "https://jusp.jisc.ac.uk/testcounter/";`
+`#$c->{pirus}->{tracker} = "https://irus.jisc.ac.uk/counter/test/";`
 
 if you are testing the plugin, or have it installed on a test/development machine, you can add the configuration
 above to a file in the archive specific configuration e.g.  `~/archives/ARCHIVEID/cfg/cfg.d/z_pirus.pl`.
