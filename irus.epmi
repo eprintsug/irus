@@ -15,9 +15,9 @@
         <file>
           <filename>cfg.d/pirus.pl</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>0678e68fcb1648ca99ec49b3c9650c86</hash>
+          <hash>67c7393025b548cd2fa1f4b5f114bb00</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2540</filesize>
+          <filesize>3367</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Event/PIRUS.pm</filename>
@@ -82,7 +82,7 @@
       <id>https://orcid.org/0000-0002-8611-8266</id>
     </item>
   </creators>
-  <datestamp>2019-10-15 16:39:05</datestamp>
+  <datestamp>2019-11-26 11:48:23</datestamp>
   <title>PIRUS/IRUS-UK PUSH Implementation</title>
   <description>The aim of the PIRUS2 Project is to enable publishers, repositories and other organizations to generate and share authoritative, trustworthy usage statistics for the individual articles and other items that they host. v1.2.0+ is COUNTER R5 compliant.</description>
   <requirements>Requires 3.2.3 for TRIGGER and COUNTER robots list.</requirements>
