@@ -32,6 +32,21 @@ In the file `lib/cfg.d/pirus.pl` there is a URL for a test COUNTER server in the
 if you are testing the plugin, or have it installed on a test/development machine, you can add the configuration
 above to a file in the archive specific configuration e.g.  `~/archives/ARCHIVEID/cfg/cfg.d/z_pirus.pl`.
 
+### Troubleshooting
+
+From v1.2.2, more information about a failed transfer of data to the tracker will be logged in the description of the 
+`Event::PIRUS` event (that then replays the data to the tracker).
+To view the event, go to 'Manage records' -> 'Tasks' as an admin user in the EPrints interface. If there are a lot of
+items in the list, you may want to filter for `Plugin` = `Event::PIRUS`.
+
+There is also a configuration option to add the same information to the Apache error log. This can can be quite 
+verbose as it would log for every failed transmission, whereas the replay event is created once.
+
+The `Event::PIRUS` replays may only exist for a short amount of time in the event queue if the initial transmissions 
+fail, but the replay events work. To scrutinise the replay event you may need to temporarily stop the EPrints indexer
+to allow you to see the details of the failure.
+
+
 ## Implementation
 
 This code will PING the configured tracker server whenever a full-text or item summary page is requested from EPrints.
