@@ -56,8 +56,20 @@ $c->{pirus}->{ua} = LWP::UserAgent->new(
 	timeout => 20,
 	conn_cache => LWP::ConnCache->new,
 );
+
+# If you need to go via a proxy to communicate with the tracker,
+# add the following line to a local config file
 #$c->{pirus}->{ua}->proxy('https', 'FULL-URL-TO-YOUR-PROXY-SERVER');
 
+# This config value controls whether failed requests are logged into the
+# Apache error log.
+# By default some basic details are included in the description of the replay event.
+# If you need additional debugging, copy the following line into a repository-specific
+# config file, uncomment it, restart Apache and see what is in the logs.
+# should get added 
+# $c->{pirus}->{verbose_error_logging} = 1;
+
+# Enable the Event plugin for replays
 $c->{plugins}->{"Event::PIRUS"}->{params}->{disable} = 0;
 
 ##############################################################################
@@ -75,7 +87,6 @@ $c->add_dataset_trigger( 'access', EPrints::Const::EP_TRIGGER_CREATED, sub {
 	if( defined $r && !$r->is_success )
 	{
 		my $fail_message = "PIRUS dataset trigger failed to send data to tracker.\n " . $r->as_string;
-		$repo->log( $fail_message );
 		my $event = $repo->dataset( "event_queue" )->dataobj_class->create_unique( $repo, {
 			eventqueueid => Digest::MD5::md5_hex( "Event::PIRUS::replay" ),
 			pluginid => "Event::PIRUS",
@@ -86,6 +97,13 @@ $c->add_dataset_trigger( 'access', EPrints::Const::EP_TRIGGER_CREATED, sub {
 		{
 			$event->set_value( "params", [$access->id] );
 			$event->commit;
+		}
+
+		if( $repo->config( "pirus", "verbose_error_logging" ) )
+		{
+			$fail_message .= "\nAccessID that failed: " . $access->id;
+			$fail_message .= "\nURL of request that failed: " . $r->request->uri;
+			$repo->log( $fail_message );
 		}
 	}
 });
